@@ -15,11 +15,13 @@ class GearboxTests extends Specification {
 
     def "when handleGas" () {
         given:
-            int beforeHandleGas = gearboxDriver.getCurrentGear()
+            def beforeHandleGas = gearboxDriver.getCurrentGear()
+
         when:
             gearboxDriver.handleGas(new Threshold(5d))
-            int afterHandleGas = gearboxDriver.getCurrentGear()
-        than:
+            def afterHandleGas = gearboxDriver.getCurrentGear()
+
+        then:
             beforeHandleGas >= afterHandleGas
     }
 }
