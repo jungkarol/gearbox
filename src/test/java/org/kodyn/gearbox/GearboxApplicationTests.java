@@ -17,7 +17,7 @@ class GearboxApplicationTests {
 		GearboxDriver driver = new GearboxDriver(new GearboxImpl(config));
 
 		int gearBeforeHandleGas = driver.getCurrentGear();
-		driver.handleGas(10d);
+		driver.handleGas(new Threshold(10d));
 		int gearAfterHandleGas = driver.getCurrentGear();
 		Assert.isTrue(gearAfterHandleGas >= gearBeforeHandleGas, "Gear after handle gas should be greater than before");
 	}

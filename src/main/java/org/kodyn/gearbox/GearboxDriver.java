@@ -12,7 +12,7 @@ public class GearboxDriver {
         this.gearbox = gearbox;
     }
 
-    public void handleGas(double threshold) {
+    public void handleGas(Threshold threshold) {
         gearbox.bumpedUpGear();
     }
     public int getCurrentGear() {
