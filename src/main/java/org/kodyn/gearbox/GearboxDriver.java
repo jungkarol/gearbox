@@ -7,7 +7,6 @@ public class GearboxDriver {
 
     private Gearbox gearbox;
 
-    @Autowired
     public GearboxDriver(Gearbox gearbox) {
         this.gearbox = gearbox;
     }

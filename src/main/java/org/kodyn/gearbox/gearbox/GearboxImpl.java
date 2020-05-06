@@ -16,33 +16,33 @@ public class GearboxImpl implements Gearbox{
 
     @Override
     public void bumpedUpGear() {
-        if(gearboxConfig.currentGear == gearboxConfig.maxGear) {
+        if(gearboxConfig.getCurrentGear() == gearboxConfig.getMaxGear()) {
             return;
         }
-        gearboxConfig = new GearboxConfig(gearboxConfig.maxGear, gearboxConfig.currentGear + 1, gearboxConfig.state, gearboxConfig.mode, gearboxConfig.dynamicMode);
+        gearboxConfig = new GearboxConfig(gearboxConfig.getMaxGear(), gearboxConfig.getCurrentGear() + 1, gearboxConfig.getState(), gearboxConfig.getMode(), gearboxConfig.isDynamicMode());
     }
 
     @Override
     public void bumpedDownGear() {
-        if(gearboxConfig.currentGear == 1) {
+        if(gearboxConfig.getCurrentGear() == 1) {
             return;
         }
-        gearboxConfig = new GearboxConfig(gearboxConfig.maxGear, gearboxConfig.currentGear - 1, gearboxConfig.state, gearboxConfig.mode, gearboxConfig.dynamicMode);
+        gearboxConfig = new GearboxConfig(gearboxConfig.getMaxGear(), gearboxConfig.getCurrentGear() - 1, gearboxConfig.getState(), gearboxConfig.getMode(), gearboxConfig.isDynamicMode());
 
     }
 
     @Override
     public void changeMode(GearboxMode mode) {
-        gearboxConfig = new GearboxConfig(gearboxConfig.maxGear, gearboxConfig.currentGear, gearboxConfig.state, mode, gearboxConfig.dynamicMode);
+        gearboxConfig = new GearboxConfig(gearboxConfig.getMaxGear(), gearboxConfig.getCurrentGear(), gearboxConfig.getState(), mode, gearboxConfig.isDynamicMode());
     }
 
     @Override
     public void changeState(GearboxState state) {
-        gearboxConfig = new GearboxConfig(gearboxConfig.maxGear, gearboxConfig.currentGear, state, gearboxConfig.mode, gearboxConfig.dynamicMode);
+        gearboxConfig = new GearboxConfig(gearboxConfig.getMaxGear(), gearboxConfig.getCurrentGear(), state, gearboxConfig.getMode(), gearboxConfig.isDynamicMode());
     }
 
     @Override
     public int getCurrentGear() {
-        return gearboxConfig.currentGear;
+        return gearboxConfig.getCurrentGear();
     }
 }
